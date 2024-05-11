@@ -1,0 +1,3 @@
+curl -L https://raw.githubusercontent.com/robmayhew/cl1p_v4/main/blog/index.html -o index.html
+
+cp index.html /usr/share/nginx/blog_cl1p_net

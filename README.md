@@ -5,6 +5,22 @@ You can contribute to our GitHub repository or follow updates on Twitter:
 - https://github.com/robmayhew/cl1p_v4
 - https://x.com/cl1p
 
+### May 11, 2024
+
+#### Names
+
+Now that I know Django can handle the project. (I don’t see any blockers) I’m going to write a very basic version of cl1p.
+
+One problem I had in Version 3, 2 and 1 was naming. Naming is one of the hardest things to get right. The first thing I’m going to do is add a txt file where I list names and what they mean. The hope is if I keep them all in the same place I should made some better decisions. (I’ll call it vocabulary)
+
+I need a key for each allowed path on the site. I want to just use the word Path, but I know that will cause conflicts with the python language and frameworks I will end up using. It may be ugly, but a simple prefix to all models might be the way to go.
+
+I’m going with RM my initials.
+
+RMPathKey: Contains a path and a unique db ID
+
+RMPathContent: The text content of the page
+
 ### April 23, 2024
 
 #### Cl1p.net v4 platform choice
