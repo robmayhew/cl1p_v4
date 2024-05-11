@@ -1,0 +1,2 @@
+RMPathKey: Has a path and a unique id
+RMPathContent: Has RMPathKey as a foreign key, contains content of a path.
