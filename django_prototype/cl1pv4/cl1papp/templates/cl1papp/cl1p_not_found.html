@@ -3,6 +3,12 @@
 {% block title %}My Page{% endblock %}
 
 {% block content %}
-<h1>Nothing found in  {{ path}} But something has been added! </h1>
+<h1>Paste in your stuff to store at {{ path}}</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <br>
+    <input type="submit" value="Save">
+</form>
    
 {% endblock %}
