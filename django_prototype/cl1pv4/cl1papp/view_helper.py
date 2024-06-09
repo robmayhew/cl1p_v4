@@ -5,7 +5,9 @@ from cl1papp.models import RMPathContent
 def fetch_text_content_for_path(path):
     try:    
         key = RMPathKey.objects.get(path=path);
-        path_content = RMPathContent.objects.filter(key=key).order_by('-id').first()        
+        path_content = RMPathContent.objects.filter(key=key).order_by('-id').first()
+        if path_content is None:
+            return None
         return path_content.content
     except RMPathKey.DoesNotExist:
         return None

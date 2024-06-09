@@ -3,10 +3,10 @@
 {% block title %}My Page{% endblock %}
 
 {% block content %}
-<h1>You have selected the cl1p path of {{ path}} and it has something!</h1>
-<form method="post">
+<h1>You have selected the cl1p path of {{ path}}</h1>
+<form method="post" class="contentForm">
     {% csrf_token %}
-    {{ form.as_p }}
+    {{ form.as_div }}
     <br>
     <input type="submit" value="Save">
 </form>  
