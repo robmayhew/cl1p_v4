@@ -5,6 +5,21 @@ You can contribute to our GitHub repository or follow updates on Twitter:
 - https://github.com/robmayhew/cl1p_v4
 - https://x.com/cl1p
 
+### June 9, 2024
+
+Python / Django prototype is complete. It can create / view cl1p URLS. 
+
+#### Pros
+
+1. Framework really tries to help, and I like the server based rendering
+2. Feels very solid. 
+
+#### Cons
+
+1. Python (It's just not my cup of tea)
+2. Strange folder layout
+3. penv is really weird, and just feels wrong.
+
 ### May 11, 2024
 
 #### Names
