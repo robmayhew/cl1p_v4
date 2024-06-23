@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Web App</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1>cl1p.net<%= currentPath %></h1>
+  <form id="itemForm">
+    <input type="hidden" id="uri" value="<%= currentPath %>" required>
+    <textarea id="content"><%= cl1p.content%> </textarea>
+    <br>
+    <button type="submit">Save</button>
+  </form>
+ 
+
+  <script>
+    document.getElementById('itemForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const uri = document.getElementById('uri').value;
+      const content = document.getElementById('content').value;
+
+      fetch('<%= currentPath %>'
+      , {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ uri, content })
+      })
+      .then(response => response.json())
+      .then(item => {
+        console.log('Saved');
+      })
+      .catch(error => console.error('Error:', error));
+    });
+  </script>
+</body>
+</html>
