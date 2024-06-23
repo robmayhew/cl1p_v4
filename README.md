@@ -5,6 +5,23 @@ You can contribute to our GitHub repository or follow updates on Twitter:
 - https://github.com/robmayhew/cl1p_v4
 - https://x.com/cl1p
 
+### June 23, 2024
+
+#### Node Prototype
+
+Created another basic cl1p site using node.js. 
+
+#### Pros
+
+1. Javascript. It just feels like Javascript is the future. 
+2. Lightweight, many mature libraries
+
+#### Cons
+
+1. I miss the built-in admin of django
+2. Not type safe
+
+
 ### June 9, 2024
 
 Python / Django prototype is complete. It can create / view cl1p URLS. 
