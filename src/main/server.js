@@ -35,21 +35,29 @@ const cl1pSchema = new mongoose.Schema({
 
 const Cl1p = mongoose.model('Cl1p', cl1pSchema);
 
-// Route to serve the index.html file
-app.get('/', (req, res) => {
-  const data = { message: 'Welcome to the server-side rendered index page!' };
-  res.render('index', data);
-});
+
 
 app.use('/api', apiRoutes);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
+// Route to serve the index.html file
+app.get('/', (req, res) => {
+  const data = { message: 'Welcome to the server-side rendered index page!' };
+  res.render('index', data);
+  res.headersSent = true;
+});
+
 // Example route using Mongoose
 app.get('*', async (req, res) => {
+  if(res.headersSent)
+  {
+    return next();
+  }
   try {
-    const cl1p = await Cl1p.findOne({ uri: req.params.uri });
+    const cl1p = await Cl1p.findOne({ uri: req.url });
     if (!cl1p) {
-      res.render('cl1p_view');
+      const data = {cl1pPath: req.url, message: 'See'}
+      res.render('cl1p_view',data );
       return;
     }
     res.json(cl1p);
@@ -58,7 +66,7 @@ app.get('*', async (req, res) => {
   }
 });
 
-app.post('/cl1p', async (req, res) => {
+app.post('*', async (req, res) => {
   try {
     const cl1p = new Cl1p(req.body);
     await cl1p.save();
