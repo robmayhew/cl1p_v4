@@ -1,4 +1,4 @@
-package com.robmayhew.cl1p.open.objects;
+package com.robmayhew.cl1p.webserver.core.processing;
 
 import com.robmayhew.cl1p.area.bouncer.BouncerStatus;
 import com.robmayhew.cl1p.area.ownership.wrapper.QuickOwned;

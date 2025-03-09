@@ -1,4 +1,4 @@
-package com.robmayhew.cl1p.web.publicrest.apitoken;
+package com.robmayhew.cl1p.webserver.core.processing;
 
 import java.time.LocalDateTime;
 

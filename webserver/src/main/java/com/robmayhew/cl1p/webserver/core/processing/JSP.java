@@ -1,4 +1,4 @@
-package com.robmayhew.cl1p.web;
+package com.robmayhew.cl1p.webserver.core.processing;
 
 public enum JSP {
     VIEW("/WEB-INF/cl1p_view.jsp"),

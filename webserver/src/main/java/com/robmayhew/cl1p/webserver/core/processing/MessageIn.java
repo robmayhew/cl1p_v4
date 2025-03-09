@@ -1,10 +1,9 @@
-package com.robmayhew.cl1p.control.message;
+package com.robmayhew.cl1p.webserver.core.processing;
 
 import com.robmayhew.cl1p.Cl1p;
 import com.robmayhew.cl1p.open.objects.Page;
 import com.robmayhew.cl1p.storage.UserObject;
 import com.robmayhew.cl1p.web.Cl1pRequest;
-import com.robmayhew.cl1p.web.Cl1pSession;
 
 public class MessageIn {
     private final MessageInType type;

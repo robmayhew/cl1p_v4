@@ -1,4 +1,4 @@
-package com.robmayhew.cl1p.web;
+package com.robmayhew.cl1p.webserver.core.processing;
 
 import com.robmayhew.cl1p.Cl1p;
 import com.robmayhew.cl1p.Constants;
@@ -6,11 +6,8 @@ import com.robmayhew.cl1p.area.bouncer.BouncerRequest;
 import com.robmayhew.cl1p.area.bouncer.BouncerStatus;
 import com.robmayhew.cl1p.area.ownership.database.OwnedDatabaseController;
 import com.robmayhew.cl1p.area.ownership.wrapper.QuickOwned;
-import com.robmayhew.cl1p.control.message.Cl1pAction;
-import com.robmayhew.cl1p.control.message.Path;
 import com.robmayhew.cl1p.open.objects.Page;
 import com.robmayhew.cl1p.util.Cl1pStringUtil;
-import com.robmayhew.cl1p.web.publicrest.apitoken.ApiToken;
 import com.robmayhew.cl1p.web.publicrest.apitoken.ApiTokenStorage;
 import com.robmayhew.cl1p.web.rest.object.RestCl1pWrite;
 import com.robmayhew.cl1p.web.rest.object.RestViewCl1p;
@@ -42,9 +39,9 @@ public class Cl1pRequest
     private boolean apiRequest;
 
     private int cl1pType;
-    private final QuickOwned owned;
-    private BouncerStatus bouncerStatus;
-    private BouncerRequest bouncerRequest;
+//    private final QuickOwned owned;
+//    private BouncerStatus bouncerStatus;
+//    private BouncerRequest bouncerRequest;
 
 
     public Cl1pRequest(String content,
@@ -60,7 +57,7 @@ public class Cl1pRequest
                        String password,
                        int passwordOption,
                        int cl1pType,
-                       QuickOwned owned,
+                       //QuickOwned owned,
                        ApiToken token)
     {
         this.content = content;
@@ -80,12 +77,12 @@ public class Cl1pRequest
         pageIn.setGoodTillTime(Cl1p.getTimeControl().calcTtl(ttl));
         pageIn.setAllowViewAfterGtt(ttl == 0);
         pageIn.setCl1pType(cl1pType);
-        pageIn.setOwned(owned);
+        //pageIn.setOwned(owned);
         this.session = session;
         this.action = action;
         this.password = password;
         this.passwordOption = passwordOption;
-        this.owned = owned;
+        //this.owned = owned;
         this.token = token;
     }
 
@@ -103,7 +100,7 @@ public class Cl1pRequest
         pageIn.setContent(content);
         pageIn.setObjId(cr.pageHash);
         pageIn.setObjSeq(cr.seqHash);
-        pageIn.setGoodTillTime(Cl1p.getTimeControl().calcTtl(cr.ttl));
+       // pageIn.setGoodTillTime(Cl1p.getTimeControl().calcTtl(cr.ttl));
         pageIn.setAllowViewAfterGtt(cr.ttl == 0);
         this.session = cr.session;
         this.action = cr.action;

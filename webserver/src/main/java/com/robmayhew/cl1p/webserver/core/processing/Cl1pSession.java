@@ -1,42 +1,18 @@
-package com.robmayhew.cl1p.web;
+package com.robmayhew.cl1p.webserver.core.processing;
 
-import com.robmayhew.cl1p.Cl1p;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import javax.servlet.http.HttpServletRequest;
+
 import java.util.HashSet;
 
 public class Cl1pSession {
 
-    private static final String SESSION_ATTRIBUTE = "Cl1pSessionAttribute";
+
     private String last;
     private final HashSet<Long> enteredPassword = new HashSet<>();
     private String requestLoginFor;
     private String lastPurchase;
-
-
-    public static Cl1pSession session()
-    {
-        ServletRequestAttributes attr = (ServletRequestAttributes)
-                RequestContextHolder.currentRequestAttributes();
-        return session(attr.getRequest());
-    }
-
-    public static Cl1pSession session(HttpServletRequest request)
-    {
-        if (PrimaryFilter.isApi(request)) {
-            Cl1pSession dummy = new Cl1pSession();
-            return dummy;
-        }
-        Cl1pSession session = (Cl1pSession) request.getSession().getAttribute(SESSION_ATTRIBUTE);
-        if (session == null) {
-            session = new Cl1pSession();
-            request.getSession().setAttribute(SESSION_ATTRIBUTE, session);
-        }
-        return session;
-    }
-
     private boolean loggedIn;
     private String username;
     private long userId;

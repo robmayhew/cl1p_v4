@@ -1,4 +1,4 @@
-package com.robmayhew.cl1p.control.message;
+package com.robmayhew.cl1p.webserver.core.processing;
 
 public enum  MessageOutType
 {
