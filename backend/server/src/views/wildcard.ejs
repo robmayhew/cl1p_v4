@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%- include('partials/header') %>
+</head>
+<body>
+    <h1>cl1p.net<%= currentPath %></h1>
+
+  <form id="itemForm" method="post" action="<%= currentPath %>" >
+    <input type="hidden" name="uri" id="uri" value="<%= currentPath %>" required>
+    <textarea id="content" name="content"><%= wild.content%> </textarea>
+    <br>
+    <button type="submit">Save</button>
+  </form>
+ 
+
+  
+  <%- include('partials/footer') %>
+</body>
+</html>

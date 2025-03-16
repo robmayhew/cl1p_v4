@@ -1,2 +1,1 @@
-RMPathKey: Has a path and a unique id
-RMPathTextContent: Has RMPathKey as a foreign key, contains content of a path.
+Wildcard=Name for anything working with a non resereved URL. The primary object of a cl1p.net clone.

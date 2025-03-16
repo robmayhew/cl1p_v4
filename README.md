@@ -5,6 +5,11 @@ You can contribute to our GitHub repository or follow updates on Twitter:
 - https://github.com/robmayhew/cl1p_v4
 - https://x.com/cl1p
 
+
+### March 16, 2025
+
+New server using next js. Wildcard support implemeted. 
+
 ### June 23, 2024
 
 #### Node Prototype
