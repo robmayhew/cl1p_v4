@@ -14,5 +14,5 @@ export async function GET(req: Request, { params }: { params: { param: string[] 
   const paramString = param.join("/");  
   console.log(`paramString is ${paramString}`);
 
-  return NextResponse.json({ path: paramString });
+  return NextResponse.json({ uri: paramString, content: "This is a wildcard path", empty: true, rgdm:'yup', blah:true });
 }
