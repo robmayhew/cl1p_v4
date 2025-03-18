@@ -13,6 +13,11 @@ export default function WildcardPage({ params }: { params: { slug?: string } }) 
   const [globalSettings, setGlobalSettings] = useState<GlobalSettingsDTO | null>(null);
   const [loading, setLoading] = useState(true);
 
+  const submitSuccess = (data: WildcardDTO) => {
+    console.log("Submit sucess " + data.empty?"emptry":"not empty");
+    setWildcardPath(data);
+  };
+
   useEffect(() => {
     if (!slug) {
       setLoading(false);
@@ -50,19 +55,22 @@ export default function WildcardPage({ params }: { params: { slug?: string } }) 
   }, [slug]);
 
 
-
-
-
-
-
   if (!slug) return notFound();
   if (loading) return <p>Loading...</p>;
   if (!wildcardPath) return <p>Wildcard path not found.</p>;
   if (!globalSettings) return <p>Global settings not found.</p>;
-
+  if(wildcardPath.empty)
+  {
   return (
     <div>
-      <WildcardEditor data={wildcardPath} settings={globalSettings}></WildcardEditor>
+      <WildcardEditor data={wildcardPath} settings={globalSettings} onSubmitSuccess={submitSuccess}></WildcardEditor>
+    </div>
+  );
+  }
+  return (
+    <div>
+      <h1>Created!</h1>
+      <h1>{wildcardPath.content}</h1>
     </div>
   );
 }

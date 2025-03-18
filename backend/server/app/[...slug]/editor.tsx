@@ -1,14 +1,50 @@
 import { useState } from "react";
 import type { WildcardDTO } from "@/dto/wildcard-dto";
 import type { GlobalSettingsDTO } from "@/dto/global-seetings";
+
 type PageProps = {
     data: WildcardDTO;
     settings: GlobalSettingsDTO;
+    onSubmitSuccess: (data:WildcardDTO) => void;
   };
 
-export default function WildcardEditor({data, settings}: PageProps) {
+export default function WildcardEditor({data, settings, onSubmitSuccess}: PageProps) {
   const [selectedOption, setSelectedOption] = useState("Option 1");
   const [text, setText] = useState(data.content);
+
+  const handleSubmit = async () => {
+    try {
+      const response = await fetch("/api/wildcard/" + data.uri, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          content: text,
+          expiration: selectedOption,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Error: ${response.statusText}`);
+      }
+
+      const result = await response.json();
+      console.log("Success:", result);
+
+       const savedData: WildcardDTO = {
+            uri: "test",
+            content:text,
+            empty: false,
+            rgdm: 'yup',
+            blah: true
+          };
+      
+      onSubmitSuccess(savedData);
+    } catch (error) {
+      console.error("Error submitting:", error);
+    }
+  };
 
   return (
     <div className="flex flex-col h-screen">
@@ -29,7 +65,9 @@ export default function WildcardEditor({data, settings}: PageProps) {
 
       {/* Toolbar */}
       <div className="flex items-center space-x-4 p-4 bg-gray-200">
-        <button className="bg-blue-500 text-white px-4 py-2 rounded">Action</button>
+        <button className="bg-blue-500 text-white px-4 py-2 rounded"
+         onClick={handleSubmit}
+        >Create</button>
         <select
           className="p-2 border rounded"
           value={selectedOption}
